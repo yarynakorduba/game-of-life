@@ -1,0 +1,13 @@
+.Field {
+  background: rgba(139, 0, 139, 0.21);
+  border: 2px solid red;
+
+  &__rect {
+    &_alive {
+      fill: green;
+    }
+    &_dead {
+      fill: #999;
+    }
+  }
+}
