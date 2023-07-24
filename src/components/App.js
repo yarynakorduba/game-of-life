@@ -2,7 +2,13 @@ import React, { useEffect, useState } from "react";
 import { pathOr } from "ramda";
 import Field from "./Field";
 
-const App = ({ dimension, fieldViewSize }) => {
+import './App.scss';
+
+const CELL_SIZE = 18;
+
+const App = ({ dimension }) => {
+  const fieldViewSize = dimension * CELL_SIZE;
+
   const [fieldCellStates, setFieldCellStates] = useState(
     generateFieldCellStates(dimension)
   );
@@ -13,8 +19,13 @@ const App = ({ dimension, fieldViewSize }) => {
     );
     return () => clearInterval(rerenderFieldInterval);
   });
-  return <Field cellStates={fieldCellStates} fieldViewSize={fieldViewSize} />;
-};
+  return (
+    <div className="App">
+      <h1 className="Header">Game of Life</h1>
+      <Field cellStates={fieldCellStates} fieldViewSize={fieldViewSize} />
+    </div>
+    )
+  };
 
 const generateRow = size =>
   new Array(size).fill(0).map(() => Math.round(Math.random()));

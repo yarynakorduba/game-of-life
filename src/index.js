@@ -4,7 +4,7 @@ import App from "./components/App";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
-  <App dimension={25} fieldViewSize={400} />,
+  <App dimension={35} />,
   document.getElementById("root")
 );
 
